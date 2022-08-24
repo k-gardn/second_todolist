@@ -21,8 +21,10 @@ const DetailTodo = () => {
     return(
         <StDetail>
             <div>
-            <div>ID : {id}</div>
-            <button onClick={() => {navigate("/")}}>이전으로</button>
+                <StIdcontainer>
+                    <div>ID : {id}</div>
+                    <StBackbtn onClick={() => {navigate("/")}}>이전으로</StBackbtn>
+                </StIdcontainer>
             <h2 >{title}</h2> 
             <p>{content}</p>
         
@@ -35,9 +37,35 @@ const DetailTodo = () => {
 export default DetailTodo;
 
 const StDetail = styled.div`
-  display: flex;
+  max-width: 500px;
+  min-width: 300px;
+  margin: 10% auto;
+  padding: 20px 30px;
+    border : 3px solid #8FCBDE;
+    border-radius: 10px;
+
+  /* display: flex; */
+  float:center;
   gap: 12px;
   flex-wrap: wrap;
   /* text-align: center; */
 `; 
 
+const StIdcontainer = styled.div`
+     /* font-size: 1em; */
+    display: flex;
+    justify-content: space-between;
+`;
+
+const StBackbtn = styled.button`
+  border: 1px solid white;
+  font-size: 1em;
+    background-color: white;
+    border-radius: 10px;
+    padding: auto;
+    cursor: pointer;
+    text-decoration: underline;
+    color :  #2f0327;
+    opacity : 0.7;
+
+`;

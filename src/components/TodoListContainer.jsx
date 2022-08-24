@@ -131,7 +131,7 @@ const StTodoContainer2 = styled.div`
 `;
 
 const StTodo = styled.div`
-  border: 5px solid #f22b954f;
+  /* border: 5px solid #f22b954f; */
   /* width: 100%; */
   /* height: 100%; */
   display: flex;
