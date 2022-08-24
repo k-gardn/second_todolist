@@ -8,16 +8,12 @@ const AddForm = () => {
   const [title, setTitle] = useState("");
   const [content, setContent] =useState("");
   // const [id, setId] =useState("");
-
   // const [isDone, setIsDone] =useState("");
-
   // const todos = useSelector((state) => state.todos.todos); //todos모듈의 todos 객체
   const dispatch = useDispatch();
 
   const nextId = useRef(3);
-  // console.log(useRef(0));
-  // console.log(useRef(1));
-  // console.log(useRef(2));
+ 
 
 
   const onSubmitHandler = (e) => {
@@ -41,17 +37,20 @@ const AddForm = () => {
   return (
     <StFormContainer>
       <form onSubmit={onSubmitHandler}>
-        <label>제목</label>
-         {/* 인풋창을 빈칸으로 두고 submit을 했을 시 id가 모두 0으로 출력되어 삭제/업데이트 시 한꺼번에 이벤트가 일어나는 오류 발생 */}
-      {/* 유저가 인풋창에 값을 필수로 넣고 진행할 수 있게 required 속성 추가 */}
-        <StInput
-          type="text"
-          value={title} // value값을 넣어주는 이유는 setTitle을사용해서 title 값이 바뀌었을 때  input에 있는 값이 바뀌게 하려면 value={title}과 같이 넣어주는 것이 중요. '추가하기' 후에 초기화 할때 필요하다.
-          onChange={(e) => {
-            setTitle(e.target.value); //입력한 값으로 title 값을 바꿔줌.
-          }}
-          required
-        />
+        <StInputConainer1>
+          <label>제목</label>
+          {/* 인풋창을 빈칸으로 두고 submit을 했을 시 id가 모두 0으로 출력되어 삭제/업데이트 시 한꺼번에 이벤트가 일어나는 오류 발생 */}
+          {/* 유저가 인풋창에 값을 필수로 넣고 진행할 수 있게 required 속성 추가 */}
+          <StInput
+            type="text"
+            value={title} // value값을 넣어주는 이유는 setTitle을사용해서 title 값이 바뀌었을 때  input에 있는 값이 바뀌게 하려면 value={title}과 같이 넣어주는 것이 중요. '추가하기' 후에 초기화 할때 필요하다.
+            onChange={(e) => {
+              setTitle(e.target.value); //입력한 값으로 title 값을 바꿔줌.
+            }}
+            required
+          />
+        </StInputConainer1>
+        <StInputConainer2>
         <label>내용</label>
         <StInput
           type="text"
@@ -61,7 +60,10 @@ const AddForm = () => {
           }}
           required
         />
+        
+        </StInputConainer2>
         <StButton>추가하기</StButton>
+        
       </form>
     </StFormContainer>
   );
@@ -69,18 +71,33 @@ const AddForm = () => {
 
 export default AddForm;
 
+
+
 const StFormContainer = styled.div`
   display: flex;
-  gap: 24px;
+  /* gap: 24px; */
   padding: 30px;
-`;
+  justify-content: space-between; 
 
+  /* @media(max-wide: 700px ){
+    body {
+      display: flex;
+    } */
+`;
+const StInputConainer1 = styled.div`
+  float: left;
+  margin :3px;
+`;
+const StInputConainer2 = styled.div`
+  display: inline-block;
+  margin :5px;
+`;
 const StButton = styled.button`
   border: none;
   background-color: #eee;
   height: 25px;
   cursor: pointer;
-  width: 120px;
+  width: 100px;
   border-radius: 12px;
 `;
 
@@ -88,7 +105,7 @@ const StInput = styled.input`
   border: 1px solid #eee;
   margin: 0 24px;
   height: 25px;
-  width: 300px;
+  /* width: 10%; */
   border-radius: 12px;
   outline: none;
   padding: 0 10px;
