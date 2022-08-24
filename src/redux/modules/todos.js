@@ -2,6 +2,7 @@
 const ADD_TODO = "ADD_TODO";
 const DELETE_TODO = "DELETE_TODO";
 const TOGGLE_STATUS_TODO = "TOGGLE_STATUS_TODO";
+const GET_TODO_BY_ID = "GET_TODO_BY_ID";
 
 // Action Creator
 export const addTodo = (payload) => {
@@ -20,7 +21,10 @@ export const toggleTodo = (payload) => {
   return { type: TOGGLE_STATUS_TODO, payload };
 };
 
-//getTodoById
+export const gettodobyid = (payload) => {
+  return { type: GET_TODO_BY_ID, payload };
+};
+
 
 // initial State
 const initialState = {
@@ -52,7 +56,7 @@ const todos = (state = initialState, action) => {
     case DELETE_TODO:
         return {
         ...state,
-        todos : state.todos.filter((todo) => todo.id !== action.payload), //와...왜 됐다 안됐다해서 오류고치기 힘들게 ㅠㅠ
+        todos : state.todos.filter((todo) => todo.id !== action.payload), //와...왜 됐다 안됐다해서ㅜㅜ 오류고치기 힘들게 ㅠㅠ
       };
   
     case TOGGLE_STATUS_TODO:
@@ -68,6 +72,11 @@ const todos = (state = initialState, action) => {
       })
     ],
       };
+    
+    case GET_TODO_BY_ID:
+      return {
+
+      }
     default:
       return state;
   }
