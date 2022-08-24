@@ -13,7 +13,12 @@ const AddForm = () => {
 
   // const todos = useSelector((state) => state.todos.todos); //todos모듈의 todos 객체
   const dispatch = useDispatch();
-  const nextId = useRef(3)
+
+  const nextId = useRef(3);
+  // console.log(useRef(0));
+  // console.log(useRef(1));
+  // console.log(useRef(2));
+
 
   const onSubmitHandler = (e) => {
     e.preventDefault(); //form의 기능 중 submit을 하면 자동으로 페이지를 리랜더링하는데 이걸 하면 정보가 다 날아가기 때문에 이를 방지
@@ -21,14 +26,14 @@ const AddForm = () => {
 
     dispatch(
       addTodo({   //'todo를 추가해라'라는 명령(액션객체)을 리듀서(todos)로 보낸다.
-        id: nextId.current, // id = 3
+        id: nextId.current, // id = 3.
         title: title,
         content: content,
         isDone: false,
       },)  
            //payload를 객체의 형태로 보냄.
     );
-    nextId.current++ 
+    nextId.current++ //id=4
     setTitle("") //추가하기 누른 후 iput안을 빈칸으로 만든다.
     setContent("")
   };

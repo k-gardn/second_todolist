@@ -13,6 +13,8 @@ const DetailTodo = () => {
     const navigate = useNavigate();
     const location = useLocation();
 
+    console.log(location);
+
     const id = location.state.id;
     const title = location.state.title;
     const content = location.state.content;

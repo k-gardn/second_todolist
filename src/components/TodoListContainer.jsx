@@ -14,6 +14,7 @@ const TodoListContainer = () => {
   const dispatch = useDispatch();
   // const params = useParams();
   const navigate = useNavigate();
+  
 
   const onDeleteHandler = (id) => {
     dispatch( deleteTodo(id)); //todo.id를 payload로 보냄.
@@ -24,7 +25,7 @@ const TodoListContainer = () => {
   };
 
   const move = (todo) => {
-    navigate("/detail", {
+    navigate(`/detail/${todo.id}`, {
       state:{
         id : todo.id,
         title: todo.title,
