@@ -47,8 +47,11 @@ const TodoListContainer = () => {
                   <STDetailBtn onClick={()=>move_to_detail(todo)}>상세보기</STDetailBtn>
                   <h2 key={todo.id}>{todo.title}</h2> 
                   <p key={todo.id}>{todo.content}</p>
-                  <STButton key={todo.id} onClick={() => onDeleteHandler(todo.id)}>삭제하기</STButton>
-                  <STButton key={todo.id} onClick={() => onCompleteHandler(todo.id)} >{todo.isDone ? "취소" : "완료"}</STButton>          
+                  <StBtnContainer>
+                    <STButton key={todo.id} onClick={() => onDeleteHandler(todo.id)}>삭제하기</STButton>
+                    <STButton key={todo.id} onClick={() => onCompleteHandler(todo.id)} >{todo.isDone ? "취소" : "완료"}</STButton>
+                  </StBtnContainer>
+                            
                   {/* <Link to="/detail" >상세보기</Link> */}
                   {/* <STButton key={todo.id} onClick={() => {navigate("/detail")}} > 상세보기 </STButton> */}
               </StEachTodo>
@@ -69,14 +72,16 @@ const TodoListContainer = () => {
               return (
                 <StEachTodo>
                   <STDetailBtn onClick={()=>move_to_detail(todo)}>상세보기</STDetailBtn>
-
                   <h2 key={todo.id}>{todo.title}</h2> 
                   <p key={todo.id}>{todo.content}</p>
-                  <STButton onClick={() => onDeleteHandler(todo.id)}>삭제하기</STButton>  
-                  {/* 화살표함수를 안쓰고 함수명()을 하면 onClick과 상관없이 바로 실행된다.
-                  onClick={()=>{ 함수명() }}
-                  onClick={함수명}*/}
-                  <STButton key={todo.id} onClick={() => onCompleteHandler(todo.id)} >{todo.isDone ? "취소" : "완료"}</STButton>          
+                  <StBtnContainer>
+                    <STButton onClick={() => onDeleteHandler(todo.id)}>삭제하기</STButton>  
+                    {/* 화살표함수를 안쓰고 함수명()을 하면 onClick과 상관없이 바로 실행된다.
+                    onClick={()=>{ 함수명() }}
+                    onClick={함수명}*/}
+                    <STButton key={todo.id} onClick={() => onCompleteHandler(todo.id)} >{todo.isDone ? "취소" : "완료"}</STButton> 
+                  </StBtnContainer>
+                           
 
                   {/* <STButton key={todo.id} onClick={() => {navigate("/detail")}}> 상세보기 </STButton> */}
 
@@ -106,6 +111,19 @@ const StTodos = styled.div`
   margin : 0 auto;
 
 `;
+
+const StTodo = styled.div`
+  /* border: 5px solid #f22b954f; */
+  /* width: 100%; */
+  /* height: 100%; */
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  border-radius: 12px;
+  margin: auto;
+  padding: auto;
+`;
+
 const StTodoContainer1 = styled.div`
   border: 1px solid white;
   width: 45%;
@@ -130,24 +148,13 @@ const StTodoContainer2 = styled.div`
 
 `;
 
-const StTodo = styled.div`
-  /* border: 5px solid #f22b954f; */
-  /* width: 100%; */
-  /* height: 100%; */
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  border-radius: 12px;
-  margin: auto;
-  padding: auto;
-`;
-
-
 const StEachTodo = styled.div`
   border: 4px solid #cf8bd981;
   border-radius: 12px;
-  width:200px;
-  height:200px;
+  overflow-y : auto;
+  display : grid;
+  width:220px;
+  height:220px;
   margin: 10px;
   padding: 10px;
   
@@ -164,6 +171,9 @@ const STDetailBtn = styled.button`
     opacity : 0.7;
 
 `;
+const StBtnContainer = styled.div`
+  
+`;
 
 const STButton = styled.button`
     /* display: flex; */
@@ -177,5 +187,7 @@ const STButton = styled.button`
     margin: 2%;
     padding: 5px;
     width:90px;
+    position: relative;
+    bottom:1px
 
 `;
