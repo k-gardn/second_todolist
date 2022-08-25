@@ -21,6 +21,11 @@ export default Home;
 const StContainer = styled.section` //section은 보통 제목 같은 요소
   max-width: 1200px;
   min-width: 800px;
+  height: max-content;
   margin: 0 auto;
+  padding: 10px;
+  border: 2px solid #9a6df336;
+  border-radius: 5px;
+
 
 `;

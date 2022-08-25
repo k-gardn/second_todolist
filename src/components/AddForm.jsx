@@ -37,8 +37,9 @@ const AddForm = () => {
   return (
     <StFormContainer>
       <form onSubmit={onSubmitHandler}>
+        
         <StInputConainer1>
-          <label>제목</label>
+          <StLabel>제목</StLabel>
           {/* 인풋창을 빈칸으로 두고 submit을 했을 시 id가 모두 0으로 출력되어 삭제/업데이트 시 한꺼번에 이벤트가 일어나는 오류 발생 */}
           {/* 유저가 인풋창에 값을 필수로 넣고 진행할 수 있게 required 속성 추가 */}
           <StInput
@@ -50,8 +51,9 @@ const AddForm = () => {
             required
           />
         </StInputConainer1>
+
         <StInputConainer2>
-        <label>내용</label>
+        <StLabel>내용</StLabel>
         <StInput
           type="text"
           value={content}
@@ -60,8 +62,8 @@ const AddForm = () => {
           }}
           required
         />
-        
         </StInputConainer2>
+
         <StButton>추가하기</StButton>
         
       </form>
@@ -74,10 +76,11 @@ export default AddForm;
 
 
 const StFormContainer = styled.div`
-  display: flex;
+ 
+  /* display: flex; */
   /* gap: 24px; */
   padding: 30px;
-  justify-content: space-between; 
+  /* justify-content: space-between;  */
 
   /* @media(max-wide: 700px ){
     body {
@@ -92,9 +95,13 @@ const StInputConainer2 = styled.div`
   display: inline-block;
   margin :5px;
 `;
+
+const StLabel = styled.label`
+  color: #563a3a;
+`;
 const StButton = styled.button`
   border: none;
-  background-color: #eee;
+  background-color: #e5919177;
   height: 25px;
   cursor: pointer;
   width: 100px;
@@ -102,7 +109,7 @@ const StButton = styled.button`
 `;
 
 const StInput = styled.input`
-  border: 1px solid #eee;
+  border: 1px solid #e5919177;
   margin: 0 24px;
   height: 25px;
   /* width: 10%; */
