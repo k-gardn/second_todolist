@@ -25,8 +25,10 @@ const DetailTodo = () => {
                     <div>ID : {id}</div>
                     <StBackbtn onClick={() => {navigate("/")}}>이전으로</StBackbtn>
                 </StIdcontainer>
-            <h2 >{title}</h2> 
-            <p>{content}</p>
+            <StLabel>제목</StLabel>
+            <StTitle>{title}</StTitle> 
+            <StLabel>내용</StLabel>
+            <StContent>{content}</StContent>
         
             </div>
                 
@@ -41,10 +43,10 @@ const StDetail = styled.div`
   min-width: 300px;
   margin: 10% auto;
   padding: 20px 30px;
-    border : 3px solid #8FCBDE;
-    border-radius: 10px;
+  border : 3px solid #8FCBDE;
+  border-radius: 10px;
 
-  /* display: flex; */
+  display: grid;
   float:center;
   gap: 12px;
   flex-wrap: wrap;
@@ -53,8 +55,10 @@ const StDetail = styled.div`
 
 const StIdcontainer = styled.div`
      /* font-size: 1em; */
+     /* border: 1px solid red; */
     display: flex;
     justify-content: space-between;
+    margin: 20px 2px;
 `;
 
 const StBackbtn = styled.button`
@@ -68,4 +72,20 @@ const StBackbtn = styled.button`
     color :  #2f0327;
     opacity : 0.7;
 
+`;
+
+const StLabel = styled.label`
+  background-color: #0000ff24;
+  border-radius : 5px;
+  padding: 1px;
+  margin: 2px;
+  
+`;
+
+const StTitle = styled.h2`
+  color : #1954ecba;
+`;
+const StContent = styled.p`
+  font-size: 1.25em;
+  color : #0f88f2f1;
 `;
